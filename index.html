@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo1.css">
+    <title>g</title>
+</head>
+<body>
+    <header>
+        <div class="header-section container">
+            <img src="./images/logo.png" alt="" class="logo">
+            <!-- contenedor del contador del carrito -->
+            <div class="cartContador">
+                <img src="./images/cart.png" alt="" class="cart">
+                <p class="cantidadTotal">0</p>
+            </div>
+        </div>
+    </header>
+    <!-- contenedor de los productos en el carrito -->
+    <div class="cart-products" id="cart-products">
+        <div class="mi-carrito">
+            <button class="close-btn">X</button>
+            <h3>Mi Carrito</h3>
+        </div>
+
+        <!-- tabla de productos en el carrito -->
+        <div class="divTabla-carrito" id="idDivTtabla-carrito">
+            <table class="tabla">
+                <caption class="titulo-tabla">Productos en el Carrito</caption>
+                <thead class="cabecera border-top-right">
+                    <tr>
+                        <th class="border-top-left">Imagen Producto</th>
+                        <th>Nombre Producto</th>
+                        <th>Cantidad</th>
+                        <th>P.u </th>
+                        <th>Precio Total</th>
+                        <th class="border-top-right">Eliminar</th>
+                    </tr>
+                </thead>
+
+            <!-- contenedor dentro de la tabla del carrito -->
+            <tbody id="carrito-body">
+
+                <!-- inicio agregar item a carrito -->
+
+                <!-- <tr class="carrito-prod">
+                  
+                    <td class="imgCarrito">
+                        <div class="contenedor-img">
+                        <img src="images/logo.png" alt="">
+                    </div>
+                    </td>
+                    <td id="producto">perrito</td> 
+        
+                    <td> <button class="button menos"  onclick="changeQuantity('minus', ${prod.id} )">-</button>
+                    <span class= "number">1</span>
+                    <button class="button mas" onclick="changeQuantity('plus' , ${prod.id} )">+</button>  </td>
+                    <td class="precio-tabla" id="precio-uni">${prod.price}</td>
+                    <td class="precio-tabla" id="precio-total-prod">${ (prod.price*prod.quantity).toFixed(2)   }</td>
+                    <td>  <button  class=" btn-danger" type="button" onclick= "removeItemfromCart(${prod.id})"> <img src="images/tachito.png" alt=""></button></td>
+
+                 </tr> -->
+
+                       <!-- Fin agregar item a carrito -->
+
+
+            </tbody>
+              <!-- contenedor dentro de la tabla del carrito -->
+
+              <!-- cont footer carrito dentro de tabla -->
+              <tfoot id="footer-carrito-tabla">
+                <tr>  <td class="border-bottom-left border-bottom-right" colspan=5>!No hay ningun producto en el carrito</td> </tr>
+              </tfoot>
+            </table>
+        </div>
+    </div>
+    <!-- fin contenedor de los productos en el carrito -->
+
+
+    <!-- template foot tabla agregar producto al carrito (dentro de la tabla de las filas) -->
+
+    <!-- <tr class="none">
+        <td class="border-bottom-left"colspan=2 > <button id="vaciar-tabla" class="button" onclick= "vaciarCarrito()">Vaciar Carrito</button>      </td>
+        <td class="cantidadTotal"colspan=1 >0</td>
+        <td class="negrita">Precio Total</td>
+        <td id="total-a-pagar" class="precio-tabla border-bottom-right negrita">total a pagar</td>
+    
+    </tr> -->
+
+    <!-- fin template foot tabla agregar producto al carrito -->
+
+    <div class="titulo">
+        <h1>Compra de comida Online</h1>
+    </div>
+
+    <!-- aqui se insertan los items de los productos en javascript -->
+    <div class="contenedor-productos">
+
+    </div>
+
+    <!-- Inicio  aqui se va a construir template de los productos (items) -->
+
+    <!-- <article class="cartola" >
+       
+        <div class="contenedor-img">
+            <img src="images/gato1.jpg" alt="">
+        </div>
+      
+        <div class="div-info">
+            <h2 class="nombre-prod">${element.name}</h2>
+            <hr class="separador">
+            <p class="descripcion-prod">${element.description}</p>
+        </div>
+       
+        <div class="div-precio">
+            <p class="precio">${element.price}</p>
+        </div>
+        <div class="div-botones">
+            <button class="boton detalles-button" >Mas Informacion</button>
+            <button class="boton agregarCarrito" >Agregar al Carrito</button>
+
+        </div>
+    </article> -->
+
+    <!-- Fin  aqui se va a construir template de los productos (items) -->
+
+
+    <!-- Inicio template detalles producto -->
+
+    <div class="container-detalles">
+
+
+         <!-- Inicio ventana preview detalles producto -->
+
+        <!-- <div class="preview">
+             
+            <div class="detalles">
+                <button type="button" class="closeDet" onclick= "removeItem(${item.id})">x</button>
+              
+               <div class="bloques">
+                   
+    
+                   <div class="bloque1">
+    
+                      
+                        <div class="contenedorimg">
+                         <img src="images/gato5.jpg" alt="">
+                         <h2 class="nombre-prod">${item.name}</h2>
+                        </div> 
+
+
+                       
+    
+                      
+                         <h2 class="nombre-prod">Nombre Producto</h2>
+                        <hr class="separador">
+                        </div> 
+    
+                   </div>
+    
+    
+                   <div class="bloque2"> 
+    
+                       <p class="descripcion-prod">${item.description}</p>
+                        
+    
+                         <div class="divprecio-boton">
+                       <p class="precio">${item.price}</p>
+                       </div>
+    
+                        <div>
+                        <button class="button menos-cantidad">-</button>
+                        <span id="canti">1</span> 
+                        <button class="button mas-cantidad">+</button> 
+                        </div>
+                       <div class="precio-tabla" id="precio-uni">3.50</div>
+                       <div class="precio-tabla" id="precio-total-prod">3.50</div>
+                   </div> 
+    
+               </div>
+    
+    
+               <div class="botoness">
+                   <button class="boton MasInfo" onclick= "continuarComprando(${item.id})">continuar comprando</button>
+                   <button class="boton agregarCarrito" onclick= "addFromDetToCart(${item.id})">Agregar al Carrito</button>
+                   </div> 
+    
+                 </div>
+    
+       </div> -->
+
+        <!-- Fin ventana preview detalles producto -->
+    
+    </div>
+
+
+    <script>
+        const showcart = document.querySelector('.cart')
+        showcart.addEventListener('click', mostrarCarrito)
+        function mostrarCarrito(){
+            document.getElementById('cart-products').style.display='block'
+        }
+
+        const closeBtn = document.querySelector('.close-btn')
+        closeBtn.addEventListener('click', cerrarCarrito)
+        function cerrarCarrito(){
+            document.getElementById('cart-products').style.display= 'none'
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <script src="./pi.js"></script>
+    <script src="./app.js"></script>
+
+</body>
+</html>
